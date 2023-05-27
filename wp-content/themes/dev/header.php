@@ -15,7 +15,7 @@
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
             <?php bloginfo( 'name' ); ?>
         </a>
@@ -33,8 +33,9 @@
             ) );
             ?>
         </div>
-    </nav>
 
-    <header class="mb-5">
-        <h1 class="p-5 text-center text-white bg-dark"><?php bloginfo( 'name' ); ?></h1>
+    </nav>-->
+
+    <header class="p-5 text-center text-white bg-dark">
+        <h1 ><?php bloginfo( 'name' ); ?></h1>
     </header>

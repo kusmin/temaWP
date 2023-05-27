@@ -51,15 +51,17 @@ function create_custom_pages() {
             'post_author'   => 1,
             'post_type'     => 'page',
             'post_name'     => sanitize_title($page_title),
-            'page_template' => $page_data['template'],  // Atribui o template à página
+            // 'page_template' => $page_data['template'],  // Não funciona com wp_insert_post()
         );
 
-        // Checa se a página já existe
         $existing_page = get_page_by_title( $page_title );
 
         if ( ! $existing_page ) {
-            // Se a página não existir, cria uma nova
-            wp_insert_post( $page );
+            $page_id = wp_insert_post( $page );
+            update_option( sanitize_title($page_title) . '_page_id', $page_id );
+
+            // Use update_post_meta() para definir o template da página
+            update_post_meta( $page_id, '_wp_page_template', $page_data['template'] );
         }
     }
 }
@@ -89,5 +91,28 @@ function my_theme_enqueue_styles() {
 }
 add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
+function my_custom_favicon() {
+    echo '<link rel="shortcut icon" type="image/x-icon" href="' . get_stylesheet_directory_uri() . '/favicon.ico" />';
+    echo '<link rel="icon" type="image/png" sizes="32x32" href="' . get_stylesheet_directory_uri() . '/favicon-32x32.png">';
+    echo '<link rel="icon" type="image/png" sizes="96x96" href="' . get_stylesheet_directory_uri() . '/favicon-96x96.png">';
+    echo '<link rel="apple-touch-icon" sizes="180x180" href="' . get_stylesheet_directory_uri() . '/apple-touch-icon.png">';
+    echo '<meta name="msapplication-TileColor" content="#ffffff">';
+    echo '<meta name="msapplication-TileImage" content="' . get_stylesheet_directory_uri() . '/ms-icon-144x144.png">';
+}
+add_action('wp_head', 'my_custom_favicon');
+
+function my_custom_logo_setup() {
+    $defaults = array(
+        'height'      => 100,
+        'width'       => 400,
+        'flex-height' => true,
+        'flex-width'  => true,
+        'header-text' => array( 'site-title', 'site-description' ),
+    );
+    add_theme_support( 'custom-logo', $defaults );
+}
+add_action( 'after_setup_theme', 'my_custom_logo_setup' );
+
 
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+

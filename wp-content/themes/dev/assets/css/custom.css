@@ -25,3 +25,72 @@
 .theme-button.dark.active .far {
     color: #fff;  /* Ajuste a cor do ícone conforme necessário */
 }
+
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #007bff;
+}
+
+[data-theme="dark"] {
+  --background-color: #333333;
+  --text-color: #ffffff;
+  --link-color: #9A9DA1;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+.theme-switcher-label {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.theme-switcher-label i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.3s;
+}
+
+.theme-switcher-label .fas.fa-sun {
+  right: 5px;
+}
+
+.theme-switcher-label .fas.fa-moon {
+  left: 5px;
+  opacity: 0;
+}
+
+#theme-switcher:checked + .theme-switcher-label .fas.fa-sun {
+  opacity: 0;
+}
+
+#theme-switcher:checked + .theme-switcher-label .fas.fa-moon {
+  opacity: 1;
+}
+
+header, footer, .card, .btn {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.btn-primary, a:hover {
+  color: var(--background-color);
+  background-color: var(--link-color);
+}
+
+.widget {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px; /* Borda arredondada para dar uma aparência mais suave */
+}
+

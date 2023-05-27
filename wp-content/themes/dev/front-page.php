@@ -2,38 +2,101 @@
 <?php get_sidebar(); ?>
 
 <main id="main-content">
-    <section class="intro">
-        <h1>Bem-vindo ao Meu Site!</h1>
-        <p>Este é um parágrafo de introdução para o meu site. Sinta-se à vontade para explorar e aprender mais sobre o que eu faço.</p>
-
-        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  <section class="intro p-5 widget">
+    <h1 class="mb-4">Seja bem-vindo(a) ao UpDev, o Universo da Tecnologia!</h1>
+    <p class="mb-5 welcome-message" id="welcomeMessage">O UpDev é mais do que apenas um portfólio de desenvolvimento de
+      software. É a manifestação da minha paixão pela criação de soluções que impulsionam o futuro e superam os
+      desafios. Aqui, você pode explorar meu trabalho e descobrir como posso ajudá-lo a alcançar seus objetivos com
+      soluções digitais inovadoras.</p>
+    <section class="mission mb-5 widget">
+      <h2>Minha Missão</h2>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mission.webp" alt="Minha Missão"
+            class="img-fluid mb-3">
         </div>
+        <div class="col-12 col-md-6">
+          <p>A missão da UpDev é criar software de qualidade que faça a diferença. Valorizo a transparência, a inovação
+            e a paixão pela tecnologia. Trabalho com o objetivo de transformar ideias em soluções digitais,
+            proporcionando aos meus clientes ferramentas eficientes e eficazes para auxiliar em seus desafios
+            cotidianos.</p>
+          <p>Meu compromisso é desenvolver soluções que estejam alinhadas com os objetivos dos meus clientes, garantindo
+            que a tecnologia se torne um diferencial competitivo para seus negócios. Tenho orgulho da minha habilidade
+            em adaptar meus conhecimentos e habilidades às necessidades específicas de cada projeto.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about mb-5 widget">
+      <h2>Sobre Mim</h2>
+      <p>UpDev é a expressão do meu compromisso com o desenvolvimento de software de alta qualidade e inovador. Nasci da
+        vontade de fazer a diferença através da tecnologia. Meu compromisso é com a qualidade, a inovação e a satisfação
+        dos meus clientes. Com profissionalismo e alta qualificação, estou sempre em busca das melhores soluções para os
+        desafios apresentados pelo mercado.</p>
+    </section>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <section class="carousel p-5 widget">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
+
+        <?php
+        $args = array(
+            'post_type' => 'slide',
+            'posts_per_page' => -1
+        );
+        $slide_query = new WP_Query( $args );
+
+        if ( $slide_query->have_posts() ) : 
+            $slide_count = 0;
+            while ( $slide_query->have_posts() ) : $slide_query->the_post(); ?>
+
+            <div class="carousel-item <?php echo ($slide_count == 0) ? 'active' : ''; ?>">
+                <img src="<?php the_field('image'); ?>" class="d-block w-100 img-fluid" alt="<?php the_field('title'); ?>">            
+                <div class="carousel-caption d-none d-md-block">
+                    <h5><?php the_field('title'); ?></h5>
+                    <p><?php the_field('text'); ?></p>
+                </div>
+            </div>
+
+            <?php 
+            $slide_count++;
+            endwhile;
+        else: ?>
+
+            <!-- Início do carrossel fallback -->
             <div class="carousel-item active">
-            <img src="https://via.placeholder.com/800x400.png?text=Serviço+1" class="d-block w-100" alt="Serviço 1">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Serviço 1</h5>
-                <p>Descrição breve do serviço 1.</p>
-            </div>
-            </div>
-            <div class="carousel-item">
-            <img src="https://via.placeholder.com/800x400.png?text=Serviço+2" class="d-block w-100" alt="Serviço 2">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Serviço 2</h5>
-                <p>Descrição breve do serviço 2.</p>
-            </div>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quality-code.jpeg" class="d-block w-100 img-fluid" alt="Código de qualidade">            
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Código de qualidade</h5>
+                    <p>Entregamos códigos altamente otimizados, escritos de forma clara e eficiente, que são facilmente escaláveis e sustentáveis. Nosso foco está na qualidade, na manutenibilidade e na elegância do código, garantindo um desempenho superior e um código de fácil leitura.</p>
+                </div>
             </div>
             <div class="carousel-item">
-            <img src="https://via.placeholder.com/800x400.png?text=Serviço+3" class="d-block w-100" alt="Serviço 3">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>Serviço 3</h5>
-                <p>Descrição breve do serviço 3.</p>
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/consultancy.webp" class="d-block w-100 img-fluid" alt="Consultoria">            
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Consultoria</h5>
+                    <p>Especialistas em oferecer consultoria estratégica personalizada para ajudar a sua empresa a superar desafios técnicos complexos. Avaliamos as suas necessidades tecnológicas e fornecemos orientação especializada para ajudar a transformar suas ideias em soluções práticas e eficientes.</p>
+                </div>
             </div>
+            <div class="carousel-item">
+                <img src="<?php echo get_template_directory_uri(); ?>/assets/images/support.webp" class="d-block w-100 img-fluid" alt="Suporte">            
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Suporte</h5>
+                    <p>Oferecemos suporte técnico abrangente para garantir que a sua operação nunca seja interrompida. Nosso time de profissionais experientes está disponível para fornecer assistência oportuna e eficaz, seja resolvendo problemas técnicos ou fornecendo orientação sobre questões não técnicas.</p>
+                </div>
             </div>
+            <!-- Fim do carrossel fallback -->
+
+        <?php endif; 
+                    ?>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -43,15 +106,19 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
-        </div>
+    </div>
+</section>
 
 
-    </section>
 
-    <section class="latest-posts">
-        <h2>Últimas postagens do blog</h2>
 
-        <?php
+
+  </section>
+
+  <section class="latest-posts p-5 widget">
+    <h2>Últimas postagens do blog</h2>
+
+    <?php
         // Mostra os últimos 3 posts
         $args = array(
             'post_type' => 'post',
@@ -65,7 +132,7 @@
         endwhile;
         wp_reset_postdata();
         ?>
-    </section>
+  </section>
 </main>
 
 
