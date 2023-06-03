@@ -173,7 +173,73 @@ function my_custom_options() {
 }
 add_action('after_setup_theme', 'my_custom_options');
 
+function add_social_links_to_admin() {
+    add_settings_field('linkedin_url', 'URL do LinkedIn', 'display_linkedin_element', 'general');
+    register_setting('general', 'linkedin_url');
+    
+    add_settings_field('youtube_url', 'URL do YouTube', 'display_youtube_element', 'general');
+    register_setting('general', 'youtube_url');
+}
+
+function display_linkedin_element() {
+    echo '<input type="text" name="linkedin_url" id="linkedin_url" value="' . get_option('linkedin_url') . '" />';
+}
+
+function display_youtube_element() {
+    echo '<input type="text" name="youtube_url" id="youtube_url" value="' . get_option('youtube_url') . '" />';
+}
+
+add_action('admin_init', 'add_social_links_to_admin');
+
+
+function updev_widgets_init() {
+
+    register_sidebar( array(
+        'name'          => __( 'Front Page Widgets', 'updev' ),
+        'id'            => 'front-page-widgets',
+        'description'   => __( 'Add widgets here to appear in your sidebar.', 'updev' ),
+        'before_widget' => '<section id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</section>',
+        'before_title'  => '<h2 class="widget-title">',
+        'after_title'   => '</h2>',
+    ) );
+
+}
+add_action( 'widgets_init', 'updev_widgets_init' );
+
+function my_custom_sidebar() {
+    register_sidebar(
+        array (
+            'name' => __( 'Custom', 'your-theme-domain' ),
+            'id' => 'custom-side-bar',
+            'description' => __( 'Custom Sidebar', 'your-theme-domain' ),
+            'before_widget' => '<div class="widget-content">',
+            'after_widget' => "</div>",
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        )
+    );
+}
+add_action( 'widgets_init', 'my_custom_sidebar' );
+
+function comments_widgets_init() {
+    register_sidebar( array(
+      'name'          => 'Comentários',
+      'id'            => 'comments_sidebar',
+      'before_widget' => '<div>',
+      'after_widget'  => '</div>',
+      'before_title'  => '<h2 class="widgettitle">',
+      'after_title'   => '</h2>',
+    ) );
+  }
+  add_action( 'widgets_init', 'comments_widgets_init' );
+
+
+
 // Bootstrap navwalker
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+
+
+
 
 ?>

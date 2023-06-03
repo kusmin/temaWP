@@ -7,6 +7,8 @@
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 
+    <title><?php wp_title(' | ', true, 'right'); bloginfo('name'); ?></title>
+
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="<?php echo get_post_meta(get_the_ID(), 'author', true) ?: 'Renan Ribeiro Lage'; ?>">
@@ -24,17 +26,24 @@
         }
         wp_enqueue_style('theme-style', get_template_directory_uri() . '/' . $theme . '.css', array(), '1.0', 'all');
         ?>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_option('google_analytics_id'); ?>"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '<?php echo get_option('google_analytics_id'); ?>');
-    </script>
+     <?php 
+    $google_analytics_id = get_option('google_analytics_id'); 
+    $umami_url = get_option('umami_url'); 
+    $umami_id = get_option('umami_id'); 
+      
+    if (!empty($google_analytics_id)): ?>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $google_analytics_id; ?>"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '<?php echo $google_analytics_id; ?>');
+        </script>
+    <?php endif; ?>
 
-    <!-- Umami -->
-    <script async defer src="<?php echo get_option('umami_url'); ?>/umami.js" data-website-id="<?php echo get_option('umami_id'); ?>"></script>
-
+    <?php if (!empty($umami_url) && !empty($umami_id)): ?>
+        <script async defer src="<?php echo $umami_url; ?>/umami.js" data-website-id="<?php echo $umami_id; ?>"></script>
+    <?php endif; ?>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

@@ -1,3 +1,44 @@
+/* Variáveis de cores */
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #007bff;
+}
+
+[data-theme="dark"] {
+  --background-color: #333333;
+  --text-color: #ffffff;
+  --link-color: #9A9DA1;
+}
+
+/* Configurações gerais do tema */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+header, footer, .card, .btn {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.btn-primary, a:hover {
+  color: var(--background-color);
+  background-color: var(--link-color);
+}
+
+/* Estilos específicos do widget */
+.widget {
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px; /* Borda arredondada para dar uma aparência mais suave */
+}
+
+/* Estilos para o seletor de temas */
 .theme-selector {
     display: flex;
     justify-content: space-between;
@@ -16,37 +57,15 @@
     color: #000;  /* Ajuste a cor do ícone conforme necessário */
 }
 
-/* Estilos para quando o tema claro estiver ativo */
 .theme-button.light.active .far {
     color: #ff0;  /* Ajuste a cor do ícone conforme necessário */
 }
 
-/* Estilos para quando o tema escuro estiver ativo */
 .theme-button.dark.active .far {
     color: #fff;  /* Ajuste a cor do ícone conforme necessário */
 }
 
-:root {
-  --background-color: #ffffff;
-  --text-color: #333333;
-  --link-color: #007bff;
-}
-
-[data-theme="dark"] {
-  --background-color: #333333;
-  --text-color: #ffffff;
-  --link-color: #9A9DA1;
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-a {
-  color: var(--link-color);
-}
-
+/* Estilos para o switcher de temas */
 .theme-switcher-label {
   position: relative;
   display: inline-block;
@@ -78,19 +97,44 @@ a {
   opacity: 1;
 }
 
-header, footer, .card, .btn {
-  background-color: var(--background-color);
-  color: var(--text-color);
+/* Estilos para o modal */
+[data-theme='dark'] .modal-content .modal-header .modal-title, [data-theme='dark'] .modal-content .modal-body .label-modal {
+  color: #000; /* Muda a cor do título para preto quando o tema escuro está ativo */
 }
 
-.btn-primary, a:hover {
-  color: var(--background-color);
-  background-color: var(--link-color);
+
+
+.font-change-button,
+.font-change-button:hover,
+.font-change-button:focus,
+.font-change-button:active,
+.font-change-button:not(:disabled):not(.disabled):active:focus {
+    border: none;
+    background: none;
+    outline: none;
+    box-shadow: none;
+    color: var(--text-color); /* Certifique-se de que o ícone ainda seja visível */
 }
 
-.widget {
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 10px; /* Borda arredondada para dar uma aparência mais suave */
+/* Estilo para o tema escuro */
+[data-theme='dark'] .search-btn:hover {
+  background-color: #999; /* cinza médio */
 }
+
+/* Estilo para o tema claro */
+[data-theme='light'] .search-btn {
+  background-color: #333; /* cinza escuro */
+  border-color: #000;
+}
+
+/* Estilo para o tema escuro */
+[data-theme='dark'] .nav-link i {
+  color: #fff; /* cor do ícone quando o tema escuro está ativo */
+}
+
+/* Estilo para o tema escuro */
+[data-theme='dark'] .nav-link {
+  color: #fff; /* cor do ícone e do texto quando o tema escuro está ativo */
+}
+
 

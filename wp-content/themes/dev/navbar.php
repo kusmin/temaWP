@@ -45,7 +45,7 @@
             <div class="theme-selector ml-3">
               <button class="theme-button light" aria-label="Mudar para tema claro"><i class="far fa-sun"></i></button>
               <button class="theme-button dark" aria-label="Mudar para tema escuro"><i               class="far fa-moon"></i></button>
-              <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#fontSizeModal">
+              <button type="button" class="btn btn-outline-primary font-change-button" data-bs-toggle="modal" data-bs-target="#fontSizeModal">
                 <i class="fas fa-font"></i>
               </button>
             </div>
@@ -59,7 +59,7 @@
         </div>
 
         <div class="font-size-selector ml-3">
-          <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#fontSizeModal">
+          <button type="button" class="btn btn-outline-primary font-change-button" data-bs-toggle="modal" data-bs-target="#fontSizeModal">
             <i class="fas fa-font"></i>
           </button>
         </div>

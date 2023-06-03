@@ -114,7 +114,15 @@
 
 
 
+
+
   </section>
+
+  <?php if ( is_active_sidebar( 'front-page-widgets' ) ) : ?>
+        <div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+            <?php dynamic_sidebar( 'front-page-widgets' ); ?>
+        </div><!-- #primary-sidebar -->
+    <?php endif; ?>
 
   <section class="latest-posts p-5 widget">
     <h2>Últimas postagens do blog</h2>

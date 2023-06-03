@@ -10,6 +10,8 @@
                 <a href="<?php echo get_option('linkedin_url', '#'); ?>" class="text-dark mx-2"><i class="fab fa-linkedin"></i></a>
                 <a href="<?php echo get_option('twitter_url', '#'); ?>" class="text-dark mx-2"><i class="fab fa-twitter"></i></a>
                 <a href="<?php echo get_option('github_url', 'https://github.com/kusmin'); ?>" class="text-dark mx-2"><i class="fab fa-github"></i></a>
+                <a href="<?php echo get_option('linkedin_url', '#'); ?>" class="text-dark mx-2"><i class="fab fa-linkedin"></i></a>
+                <a href="<?php echo get_option('youtube_url', '#'); ?>" class="text-dark mx-2"><i class="fab fa-youtube"></i></a>
 
             </div>
         </div>
@@ -27,7 +29,7 @@
             <div class="modal-body">
                 <form>
                     <div class="mb-3">
-                        <label for="newsletterEmail" class="form-label">Endereço de Email</label>
+                        <label class="label-modal" for="newsletterEmail" class="form-label">Endereço de Email</label>
                         <input type="email" class="form-control" id="newsletterEmail">
                     </div>
                     <button type="submit" class="btn btn-primary mt-2">Inscrever</button>
@@ -47,7 +49,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="font-size">Selecione o tamanho da fonte</label>
+                    <label class="label-modal" for="font-size">Selecione o tamanho da fonte</label>
                     <select class="form-control" id="font-size">
                         <option value="1rem">Pequena</option>
                         <option value="1.25rem">Média</option>
@@ -55,7 +57,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="font-family">Selecione o tipo de fonte</label>
+                    <label class="label-modal" for="font-family">Selecione o tipo de fonte</label>
                     <select class="form-control" id="font-family">
                         <option value="Arial">Arial</option>
                         <option value="Times New Roman">Times New Roman</option>
