@@ -1,4 +1,5 @@
 <?php get_header(); ?>
+<?php get_template_part( 'navbar' ) ; ?>
 <?php get_sidebar(); ?>
 
 <main id="main-content">

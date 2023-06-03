@@ -2,7 +2,20 @@
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
+
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+
+
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="<?php echo get_post_meta(get_the_ID(), 'author', true) ?: 'Renan Ribeiro Lage'; ?>">
+    <meta name="description" content="<?php echo get_post_meta(get_the_ID(), 'description', true) ?: 'Desenvolvedor freelance especializado em web e mobile. Compartilho minhas experiências e conhecimentos em programação, incluindo as últimas tendências e tecnologias.'; ?>">
+    <meta name="keywords" content="<?php echo get_post_meta(get_the_ID(), 'keywords', true) ?: 'Desenvolvedor Freelance, Programação Web, Programação Mobile, JavaScript, Python, HTML, CSS, Node.js, React, Angular, Tutoriais de Programação, Dicas de Desenvolvimento, Blogs de Programação'; ?>">
+
+    <link rel="canonical" href="<?php echo esc_url( home_url( '/' ) ); ?>" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <?php
         $theme = 'light'; // valor padrão
@@ -11,31 +24,21 @@
         }
         wp_enqueue_style('theme-style', get_template_directory_uri() . '/' . $theme . '.css', array(), '1.0', 'all');
         ?>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo get_option('google_analytics_id'); ?>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '<?php echo get_option('google_analytics_id'); ?>');
+    </script>
+
+    <!-- Umami -->
+    <script async defer src="<?php echo get_option('umami_url'); ?>/umami.js" data-website-id="<?php echo get_option('umami_id'); ?>"></script>
 
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
-    <!--<nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-            <?php bloginfo( 'name' ); ?>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <?php
-            wp_nav_menu( array(
-                'theme_location' => 'primary',
-                'container'      => false,
-                'menu_class'     => 'navbar-nav ml-auto',
-                'walker'         => new WP_Bootstrap_Navwalker(),
-                'depth'          => 2
-            ) );
-            ?>
-        </div>
-
-    </nav>-->
-
+   
     <header class="p-5 text-center text-white bg-dark">
         <h1 ><?php bloginfo( 'name' ); ?></h1>
     </header>

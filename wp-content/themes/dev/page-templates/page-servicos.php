@@ -4,9 +4,10 @@ Template Name: Services Page
 */
 
 get_header(); ?>
+<?php get_template_part( 'navbar' ) ; ?>
 <?php get_sidebar(); ?>
 
-<main id="main-content">
+<main id="main-content" class="p-5">
 
     <section class="services">
         <h2>Meus Serviços</h2>

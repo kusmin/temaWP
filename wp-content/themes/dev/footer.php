@@ -37,12 +37,76 @@
     </div>
 </div>
 
+<!-- Modal para alterar o tamanho da fonte -->
+<div class="modal fade" id="fontSizeModal" tabindex="-1" aria-labelledby="fontSizeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fontSizeModalLabel">Alterar configurações da fonte</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="font-size">Selecione o tamanho da fonte</label>
+                    <select class="form-control" id="font-size">
+                        <option value="1rem">Pequena</option>
+                        <option value="1.25rem">Média</option>
+                        <option value="1.5rem">Grande</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="font-family">Selecione o tipo de fonte</label>
+                    <select class="form-control" id="font-family">
+                        <option value="Arial">Arial</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Courier New">Courier New</option>
+                        <!-- Adicione mais opções de fonte aqui -->
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary" id="saveFontSettings">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
 <?php wp_footer(); ?>
 
 <script>
+     
     jQuery(document).ready(function() {
+
+    document.getElementById('saveFontSettings').addEventListener('click', function() {
+    var selectedFontSize = document.getElementById('font-size').value;
+    var selectedFontFamily = document.getElementById('font-family').value;
+    document.body.style.fontSize = selectedFontSize;
+    document.body.style.fontFamily = selectedFontFamily;
+    localStorage.setItem('userFontSize', selectedFontSize);
+    localStorage.setItem('userFontFamily', selectedFontFamily);
+    fontSizeModal.hide();
+    });
+
+    // Quando a página é carregada, defina o tamanho e tipo da fonte para a preferência do usuário, se disponível
+    window.onload = function() {
+        var userFontSize = localStorage.getItem('userFontSize');
+        var userFontFamily = localStorage.getItem('userFontFamily');
+        if (userFontSize) {
+                document.body.style.fontSize = userFontSize;
+            document.getElementById('font-size').value = userFontSize;
+        }
+        if (userFontFamily) {
+            document.body.style.fontFamily = userFontFamily;
+            document.getElementById('font-family').value = userFontFamily;
+        }
+    }
+
+
+
         // Checa se o usuário já fechou o modal
         if (!localStorage.getItem('modalClosed')) {
             // Exibe o modal
