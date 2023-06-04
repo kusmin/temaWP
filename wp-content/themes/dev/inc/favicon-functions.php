@@ -42,3 +42,11 @@ function dev_custom_favicon() {
       }
   }
 }
+
+add_filter('wp_get_attachment_image_attributes', 'change_attachement_image_attributes', 20, 2);
+
+function change_attachement_image_attributes($attr, $attachment) {
+    $attr['loading'] = 'lazy';
+    return $attr;
+}
+

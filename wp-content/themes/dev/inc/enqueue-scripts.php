@@ -25,7 +25,7 @@ wp_localize_script('main', 'php_vars', array(
   if (isset($_COOKIE['theme'])) {
     $theme = $_COOKIE['theme']; // atualizar o tema com a preferência do usuário, se disponível
     if($theme){
-      wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/' . $theme . 'min.css', array(), '1.0', 'all');
+      wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/' . $theme . '.min.css', array(), '1.0', 'all');
 
     }else{
       wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/ligth.min.css', array(), '1.0', 'all');

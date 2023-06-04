@@ -36,7 +36,7 @@
     <?php endif; ?>
 
     <?php if (!empty($umami_url) && !empty($umami_id)): ?>
-        <script async defer src="<?php echo $umami_url; ?>/umami.js" data-website-id="<?php echo $umami_id; ?>"></script>
+        <script async defer src="<?php echo $umami_url; ?>umami.js" data-website-id="<?php echo $umami_id; ?>"></script>
     <?php endif; ?>
     <?php wp_head(); ?>
 </head>
