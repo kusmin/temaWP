@@ -1,4 +1,4 @@
-<nav id="navbar" class="navbar navbar-expand-lg px-2" role="navigation">
+<nav id="navbar" class="navbar navbar-expand-lg px-4" role="navigation">
   <div class="container-fluid">
     <div class="row justify-content-between align-items-center w-100 d-lg-flex">
       <div class="col-lg-4 d-flex justify-content-start justify-content-lg-center">
@@ -37,7 +37,7 @@
                     } else {
                         $url = get_permalink(get_option($page_slug . '_page_id'));
                     }
-                    echo '<li class="nav-item mr-3" role="presentation"><a class="nav-link" href="' . $url . '" role="menuitem" aria-label="'. $page_data['title'] .'"><i class="' . $page_data['icon'] . ' mr-2" aria-hidden="true"></i>' . $page_data['title'] . '</a></li>';
+                    echo '<li class="nav-item px-3" role="presentation"><a class="nav-link" href="' . $url . '" role="menuitem" aria-label="'. $page_data['title'] .'"><i class="' . $page_data['icon'] . ' me-1" aria-hidden="true"></i>' . $page_data['title'] . '</a></li>';
                   }
                 ?>
           </ul>

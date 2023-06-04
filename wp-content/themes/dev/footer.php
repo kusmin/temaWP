@@ -60,8 +60,11 @@
                     <label class="label-modal" for="font-family">Selecione o tipo de fonte</label>
                     <select class="form-control" id="font-family">
                         <option value="Arial">Arial</option>
-                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Comic Sans MS">Comic Sans MS</option>
+                        <option value="Georgia">Georgia</option>
                         <option value="Courier New">Courier New</option>
+                        <option value="Times New Roman">Times New Roman</option>
                         <!-- Adicione mais opções de fonte aqui -->
                     </select>
                 </div>
@@ -79,91 +82,7 @@
 
 <?php wp_footer(); ?>
 
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-    .then(function(registration) {
-        console.log('Service worker registration succeeded:', registration);
-    }).catch(function(error) {
-        console.log('Service worker registration failed:', error);
-    });
-}
-
-</script>
-
-
-<script>
-     
-    jQuery(document).ready(function() {
-
-    document.getElementById('saveFontSettings').addEventListener('click', function() {
-    var selectedFontSize = document.getElementById('font-size').value;
-    var selectedFontFamily = document.getElementById('font-family').value;
-    document.body.style.fontSize = selectedFontSize;
-    document.body.style.fontFamily = selectedFontFamily;
-    localStorage.setItem('userFontSize', selectedFontSize);
-    localStorage.setItem('userFontFamily', selectedFontFamily);
-    fontSizeModal.hide();
-    });
-
-    // Quando a página é carregada, defina o tamanho e tipo da fonte para a preferência do usuário, se disponível
-    window.onload = function() {
-        var userFontSize = localStorage.getItem('userFontSize');
-        var userFontFamily = localStorage.getItem('userFontFamily');
-        if (userFontSize) {
-                document.body.style.fontSize = userFontSize;
-            document.getElementById('font-size').value = userFontSize;
-        }
-        if (userFontFamily) {
-            document.body.style.fontFamily = userFontFamily;
-            document.getElementById('font-family').value = userFontFamily;
-        }
-    }
-
-
-
-        // Checa se o usuário já fechou o modal
-        if (!localStorage.getItem('modalClosed')) {
-            // Exibe o modal
-            jQuery('#newsletterModal').modal('show');
-        }
-
-        // Quando o modal for fechado, salva uma flag no localStorage
-        jQuery('#newsletterModal').on('hide.bs.modal', function() {
-            localStorage.setItem('modalClosed', true);
-        });
-
-        // Obtém os botões de tema
-        const lightThemeButton = jQuery('.theme-button.light');
-        const darkThemeButton = jQuery('.theme-button.dark');
-
-        // Aplica o tema escolhido na última visita
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme) {
-            document.documentElement.setAttribute('data-theme', savedTheme);
-            if (savedTheme === 'dark') {
-                darkThemeButton.addClass('active');
-            } else {
-                lightThemeButton.addClass('active');
-            }
-        }
-
-        // Adiciona evento de clique aos botões de tema
-        lightThemeButton.click(function() {
-            document.documentElement.setAttribute('data-theme', 'light');
-            localStorage.setItem('theme', 'light');
-            lightThemeButton.addClass('active');
-            darkThemeButton.removeClass('active');
-        });
-
-        darkThemeButton.click(function() {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            localStorage.setItem('theme', 'dark');
-            darkThemeButton.addClass('active');
-            lightThemeButton.removeClass('active');
-        });
-    });
-</script>
+<script src="<?php echo get_template_directory_uri(); ?>/assets/js/main.min.js"></script>
 
 </body>
 </html>

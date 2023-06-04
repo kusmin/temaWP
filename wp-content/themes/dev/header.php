@@ -6,7 +6,6 @@
 
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 
     <title><?php wp_title(' | ', true, 'right'); bloginfo('name'); ?></title>
 
@@ -19,15 +18,9 @@
     <link rel="canonical" href="<?php echo esc_url( home_url( '/' ) ); ?>" />
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <?php
-        $theme = 'light'; // valor padrão
-        if (isset($_COOKIE['theme'])) {
-            $theme = $_COOKIE['theme']; // atualizar o tema com a preferência do usuário, se disponível
-        }
-        wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/' . $theme . '.css', array(), '1.0', 'all');
-        ?>
-     <?php 
+        
+     
     $google_analytics_id = get_option('google_analytics_id'); 
     $umami_url = get_option('umami_url'); 
     $umami_id = get_option('umami_id'); 

@@ -6892,9 +6892,9 @@ function wp_find_hierarchy_loop_tortoise_hare( $callback, $start, $override = ar
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
  */
-function send_frame_options_header() {
-	header( 'X-Frame-Options: SAMEORIGIN' );
-}
+// function send_frame_options_header() {
+// 	header( 'X-Frame-Options: SAMEORIGIN' );
+// }
 
 /**
  * Retrieves a list of protocols to allow in HTML attributes.
