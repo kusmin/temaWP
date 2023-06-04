@@ -76,21 +76,21 @@
             <div class="carousel-item active">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/quality-code.jpeg" class="d-block w-100 img-fluid" alt="Código de qualidade">            
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Código de qualidade</h5>
+                    <h4>Código de qualidade</h4>
                     <p>Entregamos códigos altamente otimizados, escritos de forma clara e eficiente, que são facilmente escaláveis e sustentáveis. Nosso foco está na qualidade, na manutenibilidade e na elegância do código, garantindo um desempenho superior e um código de fácil leitura.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/consultancy.webp" class="d-block w-100 img-fluid" alt="Consultoria">            
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Consultoria</h5>
+                    <h4>Consultoria</h4>
                     <p>Especialistas em oferecer consultoria estratégica personalizada para ajudar a sua empresa a superar desafios técnicos complexos. Avaliamos as suas necessidades tecnológicas e fornecemos orientação especializada para ajudar a transformar suas ideias em soluções práticas e eficientes.</p>
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="<?php echo get_template_directory_uri(); ?>/assets/images/support.webp" class="d-block w-100 img-fluid" alt="Suporte">            
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Suporte</h5>
+                    <h4>Suporte</h4>
                     <p>Oferecemos suporte técnico abrangente para garantir que a sua operação nunca seja interrompida. Nosso time de profissionais experientes está disponível para fornecer assistência oportuna e eficaz, seja resolvendo problemas técnicos ou fornecendo orientação sobre questões não técnicas.</p>
                 </div>
             </div>

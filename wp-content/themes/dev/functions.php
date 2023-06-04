@@ -33,6 +33,10 @@ require_once get_template_directory() . '/inc/favicon-functions.php';
 // Include admin functions
 require_once get_template_directory() . '/inc/admin-functions.php';
 
+// Include Pwa functions
+
+require_once get_template_directory() . '/inc/pwa-functions.php';
+
 // Bootstrap navwalker
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 

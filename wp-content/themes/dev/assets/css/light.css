@@ -1,0 +1,29 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --link-color: #007bff;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+header, footer, .card, .btn {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.btn-primary, a:hover {
+  color: var(--background-color);
+  background-color: var(--link-color);
+}
+
+[data-theme='light'] .search-btn {
+  background-color: #333; /* cinza escuro */
+  border-color: #000;
+}

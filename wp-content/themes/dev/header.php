@@ -2,6 +2,7 @@
 <html <?php language_attributes(); ?>>
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>" />
+    <meta name="theme-color" content="#fff">
 
     <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -24,7 +25,7 @@
         if (isset($_COOKIE['theme'])) {
             $theme = $_COOKIE['theme']; // atualizar o tema com a preferência do usuário, se disponível
         }
-        wp_enqueue_style('theme-style', get_template_directory_uri() . '/' . $theme . '.css', array(), '1.0', 'all');
+        wp_enqueue_style('theme-style', get_template_directory_uri() . '/assets/css/' . $theme . '.css', array(), '1.0', 'all');
         ?>
      <?php 
     $google_analytics_id = get_option('google_analytics_id'); 

@@ -1,0 +1,40 @@
+:root {
+  --background-color: #333333;
+  --text-color: #ffffff;
+  --link-color: #9A9DA1;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+}
+
+header, footer, .card, .btn {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.btn-primary, a:hover {
+  color: var(--background-color);
+  background-color: var(--link-color);
+}
+
+[data-theme='dark'] .modal-content .modal-header .modal-title, [data-theme='dark'] .modal-content .modal-body .label-modal {
+  color: #000; /* Muda a cor do título para preto quando o tema escuro está ativo */
+}
+
+[data-theme='dark'] .search-btn:hover {
+  background-color: #999; /* cinza médio */
+}
+
+[data-theme='dark'] .nav-link i {
+  color: #fff; /* cor do ícone quando o tema escuro está ativo */
+}
+
+[data-theme='dark'] .nav-link {
+  color: #fff; /* cor do ícone e do texto quando o tema escuro está ativo */
+}

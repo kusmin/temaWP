@@ -1,140 +1,78 @@
-/* Variáveis de cores */
-:root {
-  --background-color: #ffffff;
-  --text-color: #333333;
-  --link-color: #007bff;
-}
-
-[data-theme="dark"] {
-  --background-color: #333333;
-  --text-color: #ffffff;
-  --link-color: #9A9DA1;
-}
-
 /* Configurações gerais do tema */
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-a {
-  color: var(--link-color);
-}
-
-header, footer, .card, .btn {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-.btn-primary, a:hover {
-  color: var(--background-color);
-  background-color: var(--link-color);
-}
-
-/* Estilos específicos do widget */
 .widget {
-    margin: 20px 0;
-    padding: 20px;
-    border-radius: 10px; /* Borda arredondada para dar uma aparência mais suave */
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px; /* Borda arredondada para dar uma aparência mais suave */
 }
 
 /* Estilos para o seletor de temas */
 .theme-selector {
-    display: flex;
-    justify-content: space-between;
-    width: 60px;  /* Ajuste conforme necessário */
+  display: flex;
+  justify-content: space-between;
+  width: 60px;  /* Ajuste conforme necessário */
 }
 
 .theme-button {
-    border: none;
-    background: none;
-    cursor: pointer;
-    outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
 }
 
 .theme-button .far {
-    font-size: 20px;  /* Ajuste o tamanho do ícone conforme necessário */
-    color: #000;  /* Ajuste a cor do ícone conforme necessário */
+  font-size: 20px;  /* Ajuste o tamanho do ícone conforme necessário */
+  color: #000;  /* Ajuste a cor do ícone conforme necessário */
 }
 
 .theme-button.light.active .far {
-    color: #ff0;  /* Ajuste a cor do ícone conforme necessário */
+  color: #ff0;  /* Ajuste a cor do ícone conforme necessário */
 }
 
 .theme-button.dark.active .far {
-    color: #fff;  /* Ajuste a cor do ícone conforme necessário */
+  color: #fff;  /* Ajuste a cor do ícone conforme necessário */
 }
 
 /* Estilos para o switcher de temas */
 .theme-switcher-label {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+position: relative;
+display: inline-block;
+width: 60px;
+height: 34px;
 }
 
 .theme-switcher-label i {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all 0.3s;
+position: absolute;
+top: 50%;
+transform:  translateY(-50%);
+transition: all 0.3s;
 }
 
 .theme-switcher-label .fas.fa-sun {
-  right: 5px;
+right: 5px;
 }
 
 .theme-switcher-label .fas.fa-moon {
-  left: 5px;
-  opacity: 0;
+left: 5px;
+opacity: 0;
 }
 
 #theme-switcher:checked + .theme-switcher-label .fas.fa-sun {
-  opacity: 0;
+opacity: 0;
 }
 
 #theme-switcher:checked + .theme-switcher-label .fas.fa-moon {
-  opacity: 1;
+opacity: 1;
 }
-
-/* Estilos para o modal */
-[data-theme='dark'] .modal-content .modal-header .modal-title, [data-theme='dark'] .modal-content .modal-body .label-modal {
-  color: #000; /* Muda a cor do título para preto quando o tema escuro está ativo */
-}
-
-
 
 .font-change-button,
 .font-change-button:hover,
 .font-change-button:focus,
 .font-change-button:active,
 .font-change-button:not(:disabled):not(.disabled):active:focus {
-    border: none;
-    background: none;
-    outline: none;
-    box-shadow: none;
-    color: var(--text-color); /* Certifique-se de que o ícone ainda seja visível */
+  border: none;
+  background: none;
+  outline: none;
+  box-shadow: none;
+  color: var(--text-color); /* Certifique-se de que o ícone ainda seja visível */
 }
-
-/* Estilo para o tema escuro */
-[data-theme='dark'] .search-btn:hover {
-  background-color: #999; /* cinza médio */
-}
-
-/* Estilo para o tema claro */
-[data-theme='light'] .search-btn {
-  background-color: #333; /* cinza escuro */
-  border-color: #000;
-}
-
-/* Estilo para o tema escuro */
-[data-theme='dark'] .nav-link i {
-  color: #fff; /* cor do ícone quando o tema escuro está ativo */
-}
-
-/* Estilo para o tema escuro */
-[data-theme='dark'] .nav-link {
-  color: #fff; /* cor do ícone e do texto quando o tema escuro está ativo */
-}
-
 
