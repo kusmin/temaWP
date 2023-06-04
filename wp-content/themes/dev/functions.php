@@ -37,6 +37,8 @@ require_once get_template_directory() . '/inc/admin-functions.php';
 
 require_once get_template_directory() . '/inc/pwa-functions.php';
 
+require_once get_template_directory() . '/inc/options-functions.php';
+
 // Bootstrap navwalker
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 

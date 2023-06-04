@@ -14,7 +14,7 @@ function dev_setup() {
     // Add support for widgets.
     add_theme_support( 'widgets' );
 
-    dev_create_custom_pages();
+    // dev_create_custom_pages();
 }
 
 /**
@@ -34,47 +34,47 @@ add_theme_support( 'custom-logo', $defaults );
 /**
 *Create custom pages for the dev theme.
 */
-function dev_create_custom_pages() {
-  $custom_pages = array(
-  'Contato' => array(
-  'content' => 'Este é o conteúdo da página Contato.',
-  'template' => 'page-templates/page-contato.php'
-  ),
-  'Sobre' => array(
-  'content' => 'Este é o conteúdo da página Sobre.',
-  'template' => 'page-templates/page-sobre.php'
-  ),
-  'Serviços' => array(
-  'content' => 'Este é o conteúdo da página Serviços.',
-  'template' => 'page-templates/page-servicos.php'
-  ),
-  'Blog' => array(
-  'content' => 'Este é o conteúdo da página Blog.',
-  'template' => 'page-templates/page-blog.php'
-  ),
-  );
+// function dev_create_custom_pages() {
+//   $custom_pages = array(
+//   'Contato' => array(
+//   'content' => 'Este é o conteúdo da página Contato.',
+//   'template' => 'page-templates/page-contato.php'
+//   ),
+//   'Sobre' => array(
+//   'content' => 'Este é o conteúdo da página Sobre.',
+//   'template' => 'page-templates/page-sobre.php'
+//   ),
+//   'Serviços' => array(
+//   'content' => 'Este é o conteúdo da página Serviços.',
+//   'template' => 'page-templates/page-servicos.php'
+//   ),
+//   'Blog' => array(
+//   'content' => 'Este é o conteúdo da página Blog.',
+//   'template' => 'page-templates/page-blog.php'
+//   ),
+//   );
   
-  foreach ($custom_pages as $page_title => $page_data) {
-  $page = array(
-  'post_title' => $page_title,
-  'post_content' => $page_data['content'],
-  'post_status' => 'publish',
-  'post_author' => 1,
-  'post_type' => 'page',
-  'post_name' => sanitize_title($page_title),
-  );
-   $existing_page = get_page_by_title( $page_title );
+//   foreach ($custom_pages as $page_title => $page_data) {
+//   $page = array(
+//   'post_title' => $page_title,
+//   'post_content' => $page_data['content'],
+//   'post_status' => 'publish',
+//   'post_author' => 1,
+//   'post_type' => 'page',
+//   'post_name' => sanitize_title($page_title),
+//   );
+//    $existing_page = get_page_by_title( $page_title );
   
-   if ( ! $existing_page ) {
-       $page_id = wp_insert_post( $page );
-       update_option( sanitize_title($page_title) . '_page_id', $page_id );
+//    if ( ! $existing_page ) {
+//        $page_id = wp_insert_post( $page );
+//        update_option( sanitize_title($page_title) . '_page_id', $page_id );
   
-       // Use update_post_meta() para definir o template da página
-       update_post_meta( $page_id, '_wp_page_template', $page_data['template'] );
-   }
+//        // Use update_post_meta() para definir o template da página
+//        update_post_meta( $page_id, '_wp_page_template', $page_data['template'] );
+//    }
   
-  }
-  }
+//   }
+//   }
 
 /**
  * Create custom options for Google Analytics and Umami.
