@@ -5,13 +5,13 @@
                 <span class="text-muted">&copy; <?php echo date('Y'); ?> - Updev. Todos os direitos reservados.</span>
             </div>
             <div class="col-12 col-md-6 text-center text-md-right">
-                <a href="<?php echo get_option('facebook_url', '#'); ?>" class="text-dark mx-2"><i class="fab fa-facebook-f"></i></a>
-                <a href="<?php echo get_option('instagram_url', '#'); ?>" class="text-dark mx-2"><i class="fab fa-instagram"></i></a>
-                <a href="<?php echo get_option('linkedin_url', '#'); ?>" class="text-dark mx-2"><i class="fab fa-linkedin"></i></a>
-                <a href="<?php echo get_option('twitter_url', '#'); ?>" class="text-dark mx-2"><i class="fab fa-twitter"></i></a>
-                <a href="<?php echo get_option('github_url', 'https://github.com/kusmin'); ?>" class="text-dark mx-2"><i class="fab fa-github"></i></a>
-                <a href="<?php echo get_option('linkedin_url', '#'); ?>" class="text-dark mx-2"><i class="fab fa-linkedin"></i></a>
-                <a href="<?php echo get_option('youtube_url', '#'); ?>" class="text-dark mx-2"><i class="fab fa-youtube"></i></a>
+                <a href="<?php echo get_option('facebook_url', '#'); ?>" class="text-dark mx-2" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="<?php echo get_option('instagram_url', '#'); ?>" class="text-dark mx-2" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="<?php echo get_option('linkedin_url', '#'); ?>" class="text-dark mx-2" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="<?php echo get_option('twitter_url', '#'); ?>" class="text-dark mx-2" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="<?php echo get_option('github_url', 'https://github.com/kusmin'); ?>" class="text-dark mx-2" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="<?php echo get_option('linkedin_url', '#'); ?>" class="text-dark mx-2" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="<?php echo get_option('youtube_url', '#'); ?>" class="text-dark mx-2" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
 
             </div>
         </div>

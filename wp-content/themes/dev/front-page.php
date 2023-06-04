@@ -4,13 +4,13 @@
 
 <main id="main-content">
   <section class="intro p-5 widget">
-    <h1 class="mb-4">Seja bem-vindo(a) ao UpDev, o Universo da Tecnologia!</h1>
+    <h2 class="mb-4">Seja bem-vindo(a) ao UpDev, o Universo da Tecnologia!</h2>
     <p class="mb-5 welcome-message" id="welcomeMessage">O UpDev é mais do que apenas um portfólio de desenvolvimento de
       software. É a manifestação da minha paixão pela criação de soluções que impulsionam o futuro e superam os
       desafios. Aqui, você pode explorar meu trabalho e descobrir como posso ajudá-lo a alcançar seus objetivos com
       soluções digitais inovadoras.</p>
     <section class="mission mb-5 widget">
-      <h2>Minha Missão</h2>
+      <h3>Minha Missão</h3>
       <div class="row">
         <div class="col-12 col-md-6">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/images/mission.webp" alt="Minha Missão"
@@ -29,7 +29,7 @@
     </section>
 
     <section class="about mb-5 widget">
-      <h2>Sobre Mim</h2>
+      <h3>Sobre Mim</h3>
       <p>UpDev é a expressão do meu compromisso com o desenvolvimento de software de alta qualidade e inovador. Nasci da
         vontade de fazer a diferença através da tecnologia. Meu compromisso é com a qualidade, a inovação e a satisfação
         dos meus clientes. Com profissionalismo e alta qualificação, estou sempre em busca das melhores soluções para os
