@@ -112,7 +112,10 @@ error_reporting( E_ALL );
 define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_LOG', true );
 define( 'WP_DEBUG_DISPLAY', false );
+
+
 @ini_set( 'display_errors', 0 );
+define('WP_DEBUG_LOG', '/var/www/html/wp-content/debug.log');
 
 /* Add any custom values between this line and the "stop editing" line. */
 

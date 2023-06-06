@@ -7,26 +7,24 @@ get_header(); ?>
 <?php get_template_part( 'navbar' ) ; ?>
 <?php get_sidebar(); ?>
 
-<main id="main-content" class="p-5">
-
-    <section class="services">
-        <h2>Meus Serviços</h2>
-
-        <?php
-        // Mostra todos os serviços
-        $args = array(
-            'post_type' => 'service', // Supondo que você tenha um tipo de postagem personalizado chamado 'service'
-        );
-
-        $query = new WP_Query( $args );
-
-        while ( $query->have_posts() ) : $query->the_post();
-            get_template_part( 'template-parts/content', 'service' );
-        endwhile;
-        wp_reset_postdata();
-        ?>
-    </section>
-
-</main>
+<div id="primary" class="content-area p-5">
+    <main id="main" class="site-main" role="main">
+        <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <header class="entry-header">
+                <h1 class="entry-title"><?php the_title(); ?></h1>
+            </header>
+            
+            <div class="entry-content">
+                <?php the_content(); ?>
+            </div>
+            
+            <?php if ( is_active_sidebar( 'service-1' ) ) : ?>
+                <div id="about-widget-area" class="about-widget-area widget-area" role="complementary">
+                    <?php dynamic_sidebar( 'service-1' ); ?>
+                </div>
+            <?php endif; ?>
+        </article>
+    </main>
+</div>
 
 <?php get_footer(); ?>

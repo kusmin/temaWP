@@ -57,7 +57,7 @@ function meu_pwa() {
 }
 add_action('wp_enqueue_scripts', 'meu_pwa');
 
-function serve_manifest() {
+function update_manifest_file() {
   // Obter o manifesto da opção
   $manifest = json_decode(get_option('pwa_manifest'), true);
   
@@ -134,25 +134,48 @@ function serve_manifest() {
 
   ];
 
-  // Definir o cabeçalho como json
-  header('Content-Type: application/json');
-
-  // Imprimir o manifesto
-  echo json_encode($manifest);
-
-  // Sair para evitar qualquer conteúdo extra
-  exit;
+  try {
+    // Escreve o conteúdo do manifesto no arquivo manifest.json na raiz do diretório do WordPress
+    if (file_put_contents(ABSPATH . 'manifest.json', json_encode($manifest)) === false) {
+      throw new Exception('Não foi possível escrever no arquivo: ' . ABSPATH . 'manifest.json');
+    }
+  } catch (Exception $e) {
+    error_log($e->getMessage());
+  }
+  
 }
 
-add_action('wp_ajax_nopriv_manifest', 'serve_manifest');
-add_action('wp_ajax_manifest', 'serve_manifest');
+// Chama update_manifest_file sempre que as opções 'pwa_manifest' e 'pwa_icon_path' são atualizadas
+add_action('update_option_pwa_manifest', 'update_manifest_file');
+add_action('update_option_pwa_icon_path', 'update_manifest_file');
+
+function pwa_manifest_content_init() {
+  // Adiciona a configuração
+  add_settings_field(
+      'pwa_manifest_content',
+      'Conteúdo do Manifesto PWA',
+      'pwa_manifest_content_cb',
+      'reading',
+      'default',
+      ['label_for' => 'pwa_manifest_content']
+  );
+}
+add_action('admin_init', 'pwa_manifest_content_init');
+
+function pwa_manifest_content_cb() {
+  // Lê o conteúdo do arquivo
+  $manifest_content = file_get_contents(ABSPATH . 'manifest.json');
+  // Exibe o conteúdo do arquivo
+  echo '<pre>' . esc_textarea($manifest_content) . '</pre>';
+}
+
 
 function add_manifest() {
   // Verifica se a opção está habilitada
   if (get_option('pwa_setting')) {
       // Adiciona a tag do manifesto
-      echo '<link rel="manifest" href="' . admin_url('admin-ajax.php?action=manifest') . '">';
-  }
+      echo '<link rel="manifest" href="' . home_url('/manifest.json') . '">';
+    }
 }
 add_action('wp_head', 'add_manifest');
 
