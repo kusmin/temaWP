@@ -22,7 +22,7 @@
   <link rel="dns-prefetch" href="//fonts.googleapis.com">
 
   <!-- Código do Pix do Facebook -->
-  <script>
+  <script async defer>
   ! function(f, b, e, v, n, t, s) {
     if (f.fbq) return;
     n = f.fbq = function() {
@@ -58,8 +58,8 @@
     $umami_id = get_option('umami_id'); 
       
     if (!empty($google_analytics_id)): ?>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $google_analytics_id; ?>"></script>
-  <script>
+  <script async defer src="https://www.googletagmanager.com/gtag/js?id=<?php echo $google_analytics_id; ?>"></script>
+  <script async defer>
   window.dataLayer = window.dataLayer || [];
 
   function gtag() {
