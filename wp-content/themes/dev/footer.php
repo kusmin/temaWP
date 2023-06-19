@@ -2,7 +2,23 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-md-6 text-center text-md-left">
+                <?php
+                    $terms_url = get_option('terms_url', '');
+                    $support_url = get_option('support_url', '');
+                    $privacy_url = get_option('privacy_url', '');
+                    if ( $terms_url !== '' ) {
+                        echo '<a href="' . $terms_url . '" class="text-dark mx-2" aria-label="Termos de Uso">Termos de Uso</a>';
+                    }
+                    if ( $support_url !== '' ) {
+                        echo '<a href="' . $support_url . '" class="text-dark mx-2" aria-label="Suporte">Suporte</a>';
+                    }
+
+                    if ( $privacy_url !== '' ) {
+                        echo '<a href="' . $privacy_url . '" class="text-dark mx-2" aria-label="Política de Privacidade"> Política de Privacidade</a>';
+                    }
+                ?>
                 <span class="text-muted">&copy; <?php echo date('Y'); ?> - Updev. Todos os direitos reservados.</span>
+                
             </div>
             <div class="col-12 col-md-6 text-center text-md-right">
                 <a href="<?php echo get_option('facebook_url', '#'); ?>" class="text-dark mx-2" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -18,7 +34,7 @@
     </div>
 </footer>
 
-
+<?php if( get_option( 'enable_newsletter' ) == 1 ): ?>
 <div class="modal fade" id="newsletterModal" tabindex="-1" aria-labelledby="newsletterModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -38,6 +54,7 @@
         </div>
     </div>
 </div>
+<?php endif; ?>
 
 <!-- Modal para alterar o tamanho da fonte -->
 <div class="modal fade" id="fontSizeModal" tabindex="-1" aria-labelledby="fontSizeModalLabel" aria-hidden="true">

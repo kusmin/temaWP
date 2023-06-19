@@ -39,6 +39,10 @@ require_once get_template_directory() . '/inc/pwa-functions.php';
 
 require_once get_template_directory() . '/inc/options-functions.php';
 
+require_once get_template_directory() . '/inc/newsleater-functions.php';
+require_once get_template_directory() . '/inc/terms-functions.php';
+
+
 // Bootstrap navwalker
 require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
 

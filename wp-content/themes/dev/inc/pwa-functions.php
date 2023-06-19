@@ -45,8 +45,6 @@ function pwa_manifest_cb() {
 function meu_pwa() {
   // Verifica se a opção está habilitada
   if(get_option('pwa_setting')) {
-      // Adiciona o manifesto
-      wp_enqueue_script('meu-pwa-manifesto', home_url() . '/wp-admin/admin-ajax.php?action=manifest');
       
       // Registra o service worker
       $swUrl = get_template_directory_uri().'/sw.js';
