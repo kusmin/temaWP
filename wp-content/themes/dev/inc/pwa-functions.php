@@ -47,7 +47,7 @@ function meu_pwa() {
   if(get_option('pwa_setting')) {
       
       // Registra o service worker
-      $swUrl = get_template_directory_uri().'/sw.js';
+      $swUrl = get_template_directory_uri().'/sw.min.js';
       wp_register_script('meu-pwa-sw', '', [], '', true);
       wp_localize_script('meu-pwa-sw', 'swUrl', $swUrl);
       wp_enqueue_script('meu-pwa-sw');

@@ -39,8 +39,3 @@ header, footer, .card, .btn {
   color: #fff; /* cor do ícone e do texto quando o tema escuro está ativo */
 }
 
-[data-theme="dark"] .navbar-toggler-icon {
-  /* Substitua com a cor desejada */
-  background-color: #FFF; 
-}
-
