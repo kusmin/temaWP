@@ -76,3 +76,35 @@ opacity: 1;
   color: var(--text-color); /* Certifique-se de que o ícone ainda seja visível */
 }
 
+.card-custom {
+  min-height: 400px;
+}
+
+.article-custom {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.carousel-item {
+  margin: 0 2px;
+}
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item {
+  margin: 0 2px;
+}
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev {
+  display: flex;
+}
+
+.carousel-inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
