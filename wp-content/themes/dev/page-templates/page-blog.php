@@ -29,9 +29,12 @@ get_header(); ?>
       <!-- Loop básico para exibir os posts -->
       <div class="row row-cols-1 row-cols-md-3 g-4">
 		  <?php
+		  $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
 		  $args = array(
 			  'post_type' => 'post',
 			  'post_status' => 'publish',
+			  'paged' => $paged
 		  );
 
 		  $blog_posts = new WP_Query( $args );
@@ -67,10 +70,40 @@ get_header(); ?>
                   </div>
 			  <?php
 			  endwhile;
+			  ?>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+          <div class="pagination mb-4 d-flex justify-content-center">
+			  <?php
+			  echo paginate_links( array(
+				  'base'         => str_replace( 999999999, '%#%', esc_url( get_pagenum_link( 999999999 ) ) ),
+				  'total'        => $blog_posts->max_num_pages,
+				  'current'      => max( 1, get_query_var( 'paged' ) ),
+				  'format'       => '?paged=%#%',
+				  'show_all'     => false,
+				  'type'         => 'plain',
+				  'end_size'     => 2,
+				  'mid_size'     => 1,
+				  'prev_next'    => true,
+				  'prev_text'    => sprintf( '<i class="fas fa-arrow-left"></i> %1$s', __( 'Anterior', 'text-domain' ) ),
+				  'next_text'    => sprintf( '%1$s <i class="fas fa-arrow-right"></i>', __( 'Próxima', 'text-domain' ) ),
+				  'add_args'     => false,
+				  'add_fragment' => '',
+				  'before_page_number' => '<span class="btn btn-primary mr-1">',
+				  'after_page_number' => '</span>',
+			  ) );
+			  ?>
+          </div>
+      </div>
+
+			  <?php
 			  wp_reset_postdata();
+		  else :
+			  _e( 'Sorry, no posts matched your criteria.', 'textdomain' );
 		  endif;
 		  ?>
-      </div>
+
 
       <!-- Exibe os widgets -->
     <?php if ( is_active_sidebar( 'blog-1' ) ) : ?>
@@ -87,12 +120,6 @@ get_header(); ?>
 
   </main><!-- .site-main -->
 </div><!-- .content-area -->
-
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip();
-    })
-</script>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>

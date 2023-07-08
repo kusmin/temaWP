@@ -35,6 +35,8 @@ require_once get_template_directory() . '/inc/admin-functions.php';
 
 // Include Pwa functions
 
+require_once get_template_directory() . '/inc/filter-functions.php';
+
 require_once get_template_directory() . '/inc/pwa-functions.php';
 
 require_once get_template_directory() . '/inc/options-functions.php';

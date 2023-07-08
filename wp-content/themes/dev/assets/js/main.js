@@ -22,6 +22,10 @@ jQuery(document).ready(function () {
       jQuery("#fontSizeModal").modal("hide");
     });
 
+  jQuery('.pagination a').addClass('btn btn-lg m-2');
+  jQuery('.pagination span').addClass('btn btn-lg m-2');
+  jQuery('.pagination .current').addClass('active');
+
   window.onload = function () {
     var userFontSize = localStorage.getItem("userFontSize");
     var userFontFamily = localStorage.getItem("userFontFamily");
@@ -110,3 +114,7 @@ jQuery(document).ready(function () {
     loadStylesheet("dark.min.css");
   });
 });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip();
+})

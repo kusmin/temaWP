@@ -106,5 +106,37 @@ opacity: 1;
   flex-wrap: wrap;
 }
 
+.pagination {
+  display: flex;
+  justify-content: center;
+}
+/*.pagination a, .pagination span {*/
+/*  border-radius: 50%;*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  color: #fff;*/
+/*  background-color: #007bff;*/
+/*}*/
+/*.pagination a:hover {*/
+/*  background-color: #0056b3;*/
+/*}*/
+/*.pagination .current {*/
+/*  background-color: #6c757d;*/
+/*}*/
+
+/*.pagination span.current {*/
+/*  !* Aqui você pode adicionar os estilos para fazer o número da página corrente parecer o mesmo que os outros botões de paginação. *!*/
+/*  background-color: #007bff; !* A cor de fundo padrão dos botões no Bootstrap. *!*/
+/*  color: #fff; !* A cor do texto padrão dos botões no Bootstrap. *!*/
+/*  border-radius: .25rem; !* O raio de borda padrão dos botões no Bootstrap. *!*/
+/*  padding: .5rem 1rem; !* O padding padrão dos botões no Bootstrap. *!*/
+/*  margin: 0 .5rem; !* Adicione margem para separar os botões. *!*/
+/*  cursor: default; !* O cursor não deve se tornar um ponteiro, pois o número da página corrente não é um link. *!*/
+/*}*/
+
+/*.pagination span.current span.btn{*/
+/*  cursor: default;*/
+/*}*/
+
 
 
