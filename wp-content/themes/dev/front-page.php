@@ -104,12 +104,6 @@
     </div>
 </section>
 
-
-
-
-
-
-
   </section>
 
   <?php if ( is_active_sidebar( 'front-page-widgets' ) ) : ?>
@@ -177,11 +171,6 @@
             </a>
         </div>
     </section>
-
-
-
-
-
 </main>
 
 

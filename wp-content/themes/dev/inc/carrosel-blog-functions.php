@@ -69,3 +69,16 @@ function blog_carousel_shortcode($atts) {
 	return $output;
 }
 add_shortcode('blog_carousel', 'blog_carousel_shortcode');
+
+function chrome_extension_ad_shortcode() {
+	ob_start();
+	?>
+    <section class="extension-ad p-5 widget">
+        <h2>Experimente a nossa Extensão para Chrome!</h2>
+        <p>Quer ter acesso fácil e rápido às nossas últimas postagens? Instale a nossa extensão para Chrome. Com ela, você pode ver nossas postagens recentes diretamente do seu navegador, sem precisar visitar o site.</p>
+        <a href="https://extensao.updev.dev.br/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Obter a extensão</a>
+    </section>
+	<?php
+	return ob_get_clean();
+}
+add_shortcode('extension_ad', 'chrome_extension_ad_shortcode');
